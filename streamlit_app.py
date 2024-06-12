@@ -1,6 +1,6 @@
 # Import python packages
 import streamlit as st
-from snowflake.snowpark.context import get_active_session
+from snowflake.snowpark.functions import col
 
 # Write directly to the app
 st.title(":cup_with_straw: Customize Your Smoothie! :cup_with_straw:")
@@ -21,7 +21,7 @@ st.write('The Name on your Smoothie with be ',name_on_order)
 
 # importing col from snowflake
 
-from snowflake.snowpark.functions import col
+
 
 # Get the current credentials
 session = get_active_session()
