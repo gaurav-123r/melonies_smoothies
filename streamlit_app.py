@@ -48,6 +48,8 @@ if ingredients_list and name_on_order:
 
 if ingredients_list:
     ingredients_string = ''
-    fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
-    fv_df = st.dataframe(data = fruityvice_response.json(), use_container_width = True)
+    for fruit_chosen in ingredients_list:
+        ingredients_string += fruit_chosen + ' '
+        fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon "+fruit_chosen)
+        fv_df = st.dataframe(data = fruityvice_response.json(), use_container_width = True)
 
