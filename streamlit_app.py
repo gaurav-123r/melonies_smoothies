@@ -12,19 +12,9 @@ st.write(
 name_on_order = st.text_input('Name On Smoothie')
 st.write('The Name on your Smoothie with be ',name_on_order)
 
-
-# option = st.selectbox(
-#     "What is your favarite fruit!",
-#     ("Bannana", "Strawberries", "Peaches"))
-
-# st.write("Your favarite fruit is:", option)
-
-# importing col from snowflake
-
-
-
 # Get the current credentials
-session = get_active_session()
+cnx = st.connection("snowflake")
+session = cnx.session()
 
 
 my_dataframe = session.table("smoothies.public.fruit_options").select(col('Fruit_name'))
